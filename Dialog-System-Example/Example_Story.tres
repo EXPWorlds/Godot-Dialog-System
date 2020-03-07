@@ -1,0 +1,148 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_EditorStory/EXP_EditorStory.gd" type="Script" id=1]
+
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Story_editor"
+story = {
+1: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Waking up in the sleepy starting village.",
+"nodes": {
+1: {
+"graph_offset": Vector2( 200, 0 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Player</speaker>
+<dialog>You don't look so tough!</dialog>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 400, 160 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Player</speaker>
+<dialog>I'll turn you into breakfast jelly!!</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 600, 320 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Slime</speaker>
+<dialog>Eating newbs like you is my jam!</dialog>",
+"type": "line"
+}
+}
+},
+2: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Village Elder - Battle Tutorial",
+"nodes": {
+
+}
+},
+3: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Slime Enemy - Trash Talk",
+"nodes": {
+1: {
+"graph_offset": Vector2( 200, 0 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Player</speaker>
+<dialog>You don't look so tough!</dialog>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 400, 160 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Player</speaker>
+<dialog>I'll turn you into breakfast jelly!!</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 600, 320 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Slime</speaker>
+<dialog>Eating newbs like you is my jam!</dialog>",
+"type": "line"
+}
+}
+},
+4: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Broken Signpost - Nemu Village - West Exit",
+"nodes": {
+
+}
+},
+5: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Suspicious looking pot - disembodied voice.",
+"nodes": {
+
+}
+},
+6: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "Getting robbed by the bandit who sucks at being a bandit.",
+"nodes": {
+
+}
+},
+7: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"nodes": {
+
+}
+},
+8: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"nodes": {
+
+}
+},
+9: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"nodes": {
+
+}
+}
+}
+available_dids = [  ]
+groups = [ "Enemies", "Grasslands", "NPCs", "Nemu Village", "Signposts", "Spellbooks", "Tutorials" ]

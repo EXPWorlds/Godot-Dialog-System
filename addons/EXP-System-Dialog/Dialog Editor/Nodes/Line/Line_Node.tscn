@@ -1,0 +1,111 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Dialog Editor/Nodes/Line/line_node.gd" type="Script" id=1]
+[ext_resource path="res://addons/EXP-System-Dialog/Dialog Editor/Nodes/Line/icon_distraction_free.svg" type="Texture" id=2]
+
+
+[node name="Line" type="GraphNode"]
+margin_right = 324.0
+margin_bottom = 137.0
+rect_min_size = Vector2( 324, 137 )
+title = "Line"
+offset = Vector2( 40, 40 )
+show_close = true
+resizable = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 1, 1, 1, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 1, 1, 1, 1 )
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color( 1, 1, 1, 1 )
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color( 1, 1, 1, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+margin_left = 16.0
+margin_top = 39.0
+margin_right = 380.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 364.0
+margin_bottom = 64.0
+
+[node name="TextEdit" type="TextEdit" parent="VBoxContainer/HBoxContainer2"]
+margin_right = 328.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 256, 64 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+smooth_scrolling = true
+
+[node name="Editor_BTN" type="Button" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 332.0
+margin_right = 364.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 32, 0 )
+hint_tooltip = "Expand this node's text editor."
+icon = ExtResource( 2 )
+expand_icon = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 68.0
+margin_right = 364.0
+margin_bottom = 92.0
+alignment = 1
+
+[node name="Save_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 125.0
+margin_bottom = 24.0
+hint_tooltip = "Save the current text as a template that can quickly loaded into new nodes."
+text = "Save Template As"
+
+[node name="Load_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 129.0
+margin_right = 235.0
+margin_bottom = 24.0
+hint_tooltip = "Load a template from file."
+text = "Load Template"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 239.0
+margin_right = 243.0
+margin_bottom = 24.0
+
+[node name="Link_LBL" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 247.0
+margin_top = 5.0
+margin_right = 286.0
+margin_bottom = 19.0
+text = "Slots: "
+
+[node name="Link_SpinBox" type="SpinBox" parent="VBoxContainer/HBoxContainer"]
+margin_left = 290.0
+margin_right = 364.0
+margin_bottom = 24.0
+hint_tooltip = "Change the number of output slots on this node."
+min_value = 1.0
+value = 1.0
+rounded = true
+allow_greater = true
+[connection signal="close_request" from="." to="." method="_on_Line_close_request"]
+[connection signal="offset_changed" from="." to="." method="_on_Line_offset_changed"]
+[connection signal="resize_request" from="." to="." method="_on_Line_resize_request"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer2/TextEdit" to="." method="_on_TextEdit_text_changed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Editor_BTN" to="." method="_on_Editor_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Save_BTN" to="." method="_on_Save_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Load_BTN" to="." method="_on_Load_BTN_pressed"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Link_SpinBox" to="." method="_on_Link_SpinBox_value_changed"]

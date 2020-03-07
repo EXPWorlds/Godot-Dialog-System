@@ -1,0 +1,268 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Story Editor/story_editor.gd" type="Script" id=1]
+
+[node name="Story_Editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 256 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1024.0
+margin_bottom = 20.0
+
+[node name="Close_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_right = 47.0
+margin_bottom = 20.0
+text = "Close"
+
+[node name="VSeparator5" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 51.0
+margin_right = 55.0
+margin_bottom = 20.0
+
+[node name="Story" type="MenuButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 59.0
+margin_right = 103.0
+margin_bottom = 20.0
+text = "Story"
+items = [ "New Story", null, 0, false, false, 0, 0, null, "", false, "Load Story", null, 0, false, false, 1, 0, null, "", false, "Save Story As", null, 0, false, false, 2, 0, null, "", false, "Bake Story As", null, 0, false, false, 3, 0, null, "", false, "Save CSV As", null, 0, false, false, 4, 0, null, "", false, "Load CSV", null, 0, false, false, 5, 0, null, "", false, "New Story", null, 0, false, false, 0, 0, null, "", false, "Load Story", null, 0, false, false, 1, 0, null, "", false, "Save Story As", null, 0, false, false, 2, 0, null, "", false, "Bake Story As", null, 0, false, false, 3, 0, null, "", false, "Save CSV As", null, 0, false, false, 4, 0, null, "", false, "Load CSV", null, 0, false, false, 5, 0, null, "", false, "New Story", null, 0, false, false, 0, 0, null, "", false, "Load Story", null, 0, false, false, 1, 0, null, "", false, "Save Story As", null, 0, false, false, 2, 0, null, "", false, "Bake Story As", null, 0, false, false, 3, 0, null, "", false, "Save CSV As", null, 0, false, false, 4, 0, null, "", false, "Load CSV", null, 0, false, false, 5, 0, null, "", false ]
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 107.0
+margin_right = 111.0
+margin_bottom = 20.0
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 115.0
+margin_top = 3.0
+margin_right = 163.0
+margin_bottom = 17.0
+text = "Dialog: "
+
+[node name="Create_Dialog_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 167.0
+margin_right = 220.0
+margin_bottom = 20.0
+hint_tooltip = "Create a new dialog record."
+text = "Create"
+
+[node name="Delete_Dialog_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 224.0
+margin_right = 279.0
+margin_bottom = 20.0
+hint_tooltip = "Delete all checked dialog records."
+text = "Delete"
+
+[node name="Check_All_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 283.0
+margin_right = 354.0
+margin_bottom = 20.0
+hint_tooltip = "Check all currently visible dialog records."
+text = "Check All"
+
+[node name="UnCheck_All_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 358.0
+margin_right = 447.0
+margin_bottom = 20.0
+hint_tooltip = "Uncheck all currently visible dialog records."
+text = "UnCheck All"
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 451.0
+margin_right = 455.0
+margin_bottom = 20.0
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer"]
+margin_left = 459.0
+margin_top = 3.0
+margin_right = 495.0
+margin_bottom = 17.0
+text = "Tags: "
+
+[node name="Group_Manager_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 499.0
+margin_right = 590.0
+margin_bottom = 20.0
+hint_tooltip = "Toggles the Group Manager open and closed. Use the Group Manager to add and delete groups that can be applied to dialog records in this story project."
+toggle_mode = true
+text = "Tag Manager"
+
+[node name="VSeparator3" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 594.0
+margin_right = 598.0
+margin_bottom = 20.0
+
+[node name="Apply_Group_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 602.0
+margin_right = 650.0
+margin_bottom = 20.0
+hint_tooltip = "Apply the group selected in the Group selector menu to all checked dialog records."
+text = "Apply"
+
+[node name="Remove_Group_BTN" type="Button" parent="VBoxContainer/HBoxContainer"]
+margin_left = 654.0
+margin_right = 718.0
+margin_bottom = 20.0
+hint_tooltip = "Remove the group selected in the Group selector menu from all checked dialog records if the group is applied to them."
+text = "Remove"
+
+[node name="Group_Selector_BTN" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+margin_left = 722.0
+margin_right = 779.0
+margin_bottom = 20.0
+hint_tooltip = "Select a group to apply or remove from dialog records."
+text = "Tags"
+
+[node name="VSeparator4" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+margin_left = 783.0
+margin_right = 787.0
+margin_bottom = 20.0
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 1024.0
+margin_bottom = 572.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Panel" type="Panel" parent="VBoxContainer/HBoxContainer3"]
+margin_right = 1024.0
+margin_bottom = 548.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VScrollBar" type="ScrollContainer" parent="VBoxContainer/HBoxContainer3/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialog_Record_Root" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3/Panel/VScrollBar"]
+margin_right = 1024.0
+margin_bottom = 548.0
+rect_min_size = Vector2( 0, 128 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Group_Manager" type="VBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+visible = false
+margin_left = 824.0
+margin_right = 1080.0
+margin_bottom = 716.0
+rect_min_size = Vector2( 256, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3/Group_Manager"]
+margin_right = 256.0
+margin_bottom = 24.0
+
+[node name="Add_Group_LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer3/Group_Manager/HBoxContainer"]
+margin_right = 156.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_horizontal = 3
+
+[node name="Add_Group_BTN" type="Button" parent="VBoxContainer/HBoxContainer3/Group_Manager/HBoxContainer"]
+margin_left = 160.0
+margin_right = 197.0
+margin_bottom = 24.0
+hint_tooltip = "Add a group to this story project."
+text = "Add"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Delete_Group_BTN" type="Button" parent="VBoxContainer/HBoxContainer3/Group_Manager/HBoxContainer"]
+margin_left = 201.0
+margin_right = 256.0
+margin_bottom = 24.0
+hint_tooltip = "Remove the selected group from this story project."
+text = "Delete"
+
+[node name="Group_ItemList" type="ItemList" parent="VBoxContainer/HBoxContainer3/Group_Manager"]
+margin_top = 28.0
+margin_right = 256.0
+margin_bottom = 716.0
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 576.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 0, 24 )
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_top = 5.0
+margin_right = 65.0
+margin_bottom = 19.0
+text = "Search by "
+
+[node name="Search_OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 69.0
+margin_right = 233.0
+margin_bottom = 24.0
+text = "Human Readable LBL"
+items = [ "Human Readable LBL", null, false, 0, null, "DID", null, false, 1, null ]
+selected = 0
+
+[node name="Search_LineEdit" type="LineEdit" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 237.0
+margin_right = 493.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 256, 0 )
+
+[node name="Filter_MenuButton" type="MenuButton" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 497.0
+margin_right = 537.0
+margin_bottom = 24.0
+hint_tooltip = "Select the groups that appear listed in the story editor."
+keep_pressed_outside = true
+text = "Tags"
+flat = false
+items = [ "-No Tags-", null, 1, true, false, 0, 0, null, "", false ]
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 541.0
+margin_right = 545.0
+margin_bottom = 24.0
+
+[node name="Filename_LBL" type="Label" parent="VBoxContainer/HBoxContainer2"]
+margin_left = 549.0
+margin_top = 5.0
+margin_right = 640.0
+margin_bottom = 19.0
+text = "Unsaved Story"
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Close_BTN" to="." method="_on_Close_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Create_Dialog_BTN" to="." method="_on_Create_Dialog_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Delete_Dialog_BTN" to="." method="_on_Delete_Dialog_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Check_All_BTN" to="." method="_on_Check_All_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/UnCheck_All_BTN" to="." method="_on_Uncheck_All_BTN_pressed"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/Group_Manager_BTN" to="." method="_on_Group_Manager_BTN_toggled"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Apply_Group_BTN" to="." method="_on_Apply_Group_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Remove_Group_BTN" to="." method="_on_Remove_Group_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Group_Selector_BTN" to="." method="_on_Group_Selector_BTN_pressed"]
+[connection signal="text_entered" from="VBoxContainer/HBoxContainer3/Group_Manager/HBoxContainer/Add_Group_LineEdit" to="." method="_on_Add_Group_LineEdit_text_entered"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Group_Manager/HBoxContainer/Add_Group_BTN" to="." method="_on_Add_Group_BTN_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Group_Manager/HBoxContainer/Delete_Group_BTN" to="." method="_on_Delete_Group_BTN_pressed"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer2/Search_OptionButton" to="." method="_on_Search_OptionButton_item_selected"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer2/Search_LineEdit" to="." method="_on_Search_LineEdit_text_changed"]

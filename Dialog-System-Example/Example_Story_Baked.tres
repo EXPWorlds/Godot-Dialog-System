@@ -1,0 +1,95 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_BakedStory/EXP_BakedStory.gd" type="Script" id=1]
+
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Baked_Story"
+story = {
+1: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<speaker>Player</speaker>
+<dialog>You don't look so tough!</dialog>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Player</speaker>
+<dialog>I'll turn you into breakfast jelly!!</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<speaker>Slime</speaker>
+<dialog>Eating newbs like you is my jam!</dialog>"
+}
+}
+},
+2: {
+"nodes": {
+
+}
+},
+3: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<speaker>Player</speaker>
+<dialog>You don't look so tough!</dialog>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Player</speaker>
+<dialog>I'll turn you into breakfast jelly!!</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<speaker>Slime</speaker>
+<dialog>Eating newbs like you is my jam!</dialog>"
+}
+}
+},
+4: {
+"nodes": {
+
+}
+},
+5: {
+"nodes": {
+
+}
+},
+6: {
+"nodes": {
+
+}
+},
+7: {
+"nodes": {
+
+}
+},
+8: {
+"nodes": {
+
+}
+},
+9: {
+"nodes": {
+
+}
+}
+}
