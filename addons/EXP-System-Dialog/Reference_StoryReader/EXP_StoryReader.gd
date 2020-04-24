@@ -8,7 +8,7 @@ func get_dids() -> Array:
 	return self._story.keys()
 
 
-func get_did_via_name(name : String) -> int:
+func get_did_via_record_name(name : String) -> int:
 	assert(self._names.has(name))
 	return self._names[name]
 
@@ -59,6 +59,10 @@ func has_did(did : int) -> bool:
 func has_nid(did : int, nid : int) -> bool:
 	assert(self.has_did(did))
 	return self._story[did]["nodes"].has(nid)
+
+
+func has_record_name(name : String) -> bool:
+	return self._names.has(name)
 
 
 func has_slot(did: int, nid : int, slot : int) -> bool:

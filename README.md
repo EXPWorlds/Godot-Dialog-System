@@ -55,7 +55,7 @@ Once you've written all your text, and baked a story file, you can use the Story
 ##### func get_dids() -> Array:
 >Returns a list (int) of all the DIDs in the Story
 
-##### func get_did_via_name(name : String) -> int:
+##### func get_did_via_record_name(name : String) -> int:
 >Returns the DID associated with a user defined name.
 
 ##### func get_nid_from_slot(did : int, nid : int, slot : int) -> int:
@@ -79,6 +79,8 @@ Once you've written all your text, and baked a story file, you can use the Story
 ##### func has_did(did : int) -> bool:
 
 ##### func has_nid(did : int, nid : int) -> bool:
+
+##### func has_record_name(name : String) -> bool:
 
 ##### func has_slot(did: int, nid : int, slot : int) -> bool:
 
