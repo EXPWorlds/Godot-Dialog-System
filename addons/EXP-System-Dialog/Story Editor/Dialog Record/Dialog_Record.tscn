@@ -2,7 +2,6 @@
 
 [ext_resource path="res://addons/EXP-System-Dialog/Story Editor/Dialog Record/dialog_record.gd" type="Script" id=1]
 
-
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
 border_color = Color( 0.8, 0.8, 0.8, 0 )
@@ -62,27 +61,40 @@ hint_tooltip = "Edit this dialog record in the Dialog Editor."
 text = "EDIT"
 flat = true
 
-[node name="VSeparator2" type="VSeparator" parent="ColorRect/HBoxContainer"]
+[node name="VSeparator4" type="VSeparator" parent="ColorRect/HBoxContainer"]
 margin_left = 142.0
 margin_right = 146.0
 margin_bottom = 28.0
 
-[node name="Group_BTN" type="OptionButton" parent="ColorRect/HBoxContainer"]
+[node name="Name_BTN" type="Button" parent="ColorRect/HBoxContainer"]
 margin_left = 150.0
-margin_right = 212.0
+margin_right = 200.0
+margin_bottom = 28.0
+hint_tooltip = "Edit this dialog record in the Dialog Editor."
+text = "NAME"
+flat = true
+
+[node name="VSeparator2" type="VSeparator" parent="ColorRect/HBoxContainer"]
+margin_left = 204.0
+margin_right = 208.0
+margin_bottom = 28.0
+
+[node name="Group_BTN" type="OptionButton" parent="ColorRect/HBoxContainer"]
+margin_left = 212.0
+margin_right = 274.0
 margin_bottom = 28.0
 hint_tooltip = "View groups applied to this dialog record."
 text = "TAGS"
 flat = true
 
 [node name="VSeparator3" type="VSeparator" parent="ColorRect/HBoxContainer"]
-margin_left = 216.0
-margin_right = 220.0
+margin_left = 278.0
+margin_right = 282.0
 margin_bottom = 28.0
 
 [node name="Human_Readable_LineEdit" type="LineEdit" parent="ColorRect/HBoxContainer"]
-margin_left = 224.0
-margin_right = 414.0
+margin_left = 286.0
+margin_right = 476.0
 margin_bottom = 28.0
 custom_styles/focus = SubResource( 1 )
 custom_styles/normal = SubResource( 2 )
@@ -91,6 +103,7 @@ expand_to_text_length = true
 context_menu_enabled = false
 [connection signal="toggled" from="ColorRect/HBoxContainer/CheckBox" to="." method="_on_CheckBox_toggled"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/Edit_BTN" to="." method="_on_Edit_BTN_pressed"]
+[connection signal="pressed" from="ColorRect/HBoxContainer/Name_BTN" to="." method="_on_Name_BTN_pressed"]
 [connection signal="pressed" from="ColorRect/HBoxContainer/Group_BTN" to="." method="_on_Group_BTN_pressed"]
 [connection signal="focus_exited" from="ColorRect/HBoxContainer/Human_Readable_LineEdit" to="." method="_on_Human_Readable_LineEdit_focus_exited"]
 [connection signal="text_changed" from="ColorRect/HBoxContainer/Human_Readable_LineEdit" to="." method="_on_Human_Readable_LineEdit_text_changed"]

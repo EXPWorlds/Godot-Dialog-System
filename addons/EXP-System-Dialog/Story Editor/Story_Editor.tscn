@@ -37,7 +37,7 @@ margin_left = 59.0
 margin_right = 103.0
 margin_bottom = 20.0
 text = "Story"
-items = [ "New Story", null, 0, false, false, 0, 0, null, "", false, "Load Story", null, 0, false, false, 1, 0, null, "", false, "Save Story As", null, 0, false, false, 2, 0, null, "", false, "Bake Story As", null, 0, false, false, 3, 0, null, "", false, "Save CSV As", null, 0, false, false, 4, 0, null, "", false, "Load CSV", null, 0, false, false, 5, 0, null, "", false, "New Story", null, 0, false, false, 0, 0, null, "", false, "Load Story", null, 0, false, false, 1, 0, null, "", false, "Save Story As", null, 0, false, false, 2, 0, null, "", false, "Bake Story As", null, 0, false, false, 3, 0, null, "", false, "Save CSV As", null, 0, false, false, 4, 0, null, "", false, "Load CSV", null, 0, false, false, 5, 0, null, "", false, "New Story", null, 0, false, false, 0, 0, null, "", false, "Load Story", null, 0, false, false, 1, 0, null, "", false, "Save Story As", null, 0, false, false, 2, 0, null, "", false, "Bake Story As", null, 0, false, false, 3, 0, null, "", false, "Save CSV As", null, 0, false, false, 4, 0, null, "", false, "Load CSV", null, 0, false, false, 5, 0, null, "", false ]
+items = [ "New Story", null, 0, false, false, 0, 0, null, "", false, "Load Story", null, 0, false, false, 1, 0, null, "", false, "Save Story As", null, 0, false, false, 2, 0, null, "", false, "Bake Story As", null, 0, false, false, 3, 0, null, "", false, "Save CSV As", null, 0, false, false, 4, 0, null, "", false, "Load CSV", null, 0, false, false, 5, 0, null, "", false ]
 
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 margin_left = 107.0

@@ -2,7 +2,6 @@
 
 [ext_resource path="res://addons/EXP-System-Dialog/Dialog Editor/Editor/editor.gd" type="Script" id=1]
 
-
 [node name="WindowDialog" type="WindowDialog"]
 anchor_left = 0.5
 anchor_top = 0.5

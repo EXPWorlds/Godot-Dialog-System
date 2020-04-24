@@ -4,11 +4,13 @@ extends Control
 signal changed_human_readable_text(did, text)
 signal checked(this)
 signal edit_pressed(did)
+signal rename_pressed(this)
 signal unchecked(this)
 
 onready var _DID_LBL = self.get_node("ColorRect/HBoxContainer/DID_LBL")
 onready var _Human_Readable_LineEdit = self.get_node("ColorRect/HBoxContainer/Human_Readable_LineEdit")
 onready var _Group_List = self.get_node("ColorRect/HBoxContainer/Group_BTN")
+onready var _Name_BTN = self.get_node("ColorRect/HBoxContainer/Name_BTN")
 onready var _Select_CheckBox = self.get_node("ColorRect/HBoxContainer/CheckBox")
 
 var _did : int = -1
@@ -49,6 +51,10 @@ func _on_Human_Readable_LineEdit_focus_exited():
 func _on_Human_Readable_LineEdit_text_changed(new_text):
 	self.emit_signal("changed_human_readable_text", self._did, new_text)
 
+
+func _on_Name_BTN_pressed():
+	emit_signal("rename_pressed", self)
+
 #Public Methods
 
 func check():
@@ -59,9 +65,17 @@ func get_did():
 	return self._did
 
 
+func get_record_name():
+	return self._Name_BTN.text
+
+
 func set_did(new_did : int):
 	self._did = new_did
 	self._DID_LBL.text = "DID: " + str(new_did)
+
+
+func set_record_name(rename : String):
+	self._Name_BTN.text = rename
 
 
 func set_story_editor(editor):

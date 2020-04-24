@@ -6,8 +6,8 @@ func _ready():
 	var Story_Reader = Story_Reader_Class.new()
 	
 	var story = load("res://Dialog-System-Example/Example_Story_Baked.tres")
-	
 	Story_Reader.read(story)
+	
 	var did : int = 3
 	var nid : int = 1
 	var text : String = Story_Reader.get_text(did, nid)

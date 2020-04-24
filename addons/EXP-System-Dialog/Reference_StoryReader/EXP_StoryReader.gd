@@ -1,10 +1,16 @@
 extends Reference
 
 var _story : Dictionary = {}
+var _names : Dictionary = {}
 
 
 func get_dids() -> Array:
 	return self._story.keys()
+
+
+func get_did_via_name(name : String) -> int:
+	assert(self._names.has(name))
+	return self._names[name]
 
 
 func get_nid_from_slot(did : int, nid : int, slot : int) -> int:
@@ -70,3 +76,4 @@ func read(file):
 		return
 	
 	self._story = file.story
+	self._names = file.names

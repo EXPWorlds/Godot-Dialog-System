@@ -20,6 +20,7 @@ onready var _Story_Menu = self.get_node("VBoxContainer/HBoxContainer/Story")
 var _Dialog_Record = preload("res://addons/EXP-System-Dialog/Story Editor/Dialog Record/Dialog_Record.tscn")
 var _EXP_Baked_Story = preload("res://addons/EXP-System-Dialog/Resource_BakedStory/EXP_BakedStory.gd")
 var _EXP_Story = preload("res://addons/EXP-System-Dialog/Resource_EditorStory/EXP_EditorStory.gd")
+var _Record_Rename_Box_TSCN = preload("res://addons/EXP-System-Dialog/Story Editor/Rename Record Box/Rename_Record_Box.tscn")
 
 var _available_dids : Array
 var _Bake_Story_As : EditorFileDialog
@@ -27,6 +28,8 @@ var _checked_dialogs : Array = []
 var _groups : Array
 var _Load_CSV : EditorFileDialog
 var _Load_Story : EditorFileDialog
+var _record_names : Dictionary
+var _Record_Rename_Box
 var _Save_CSV_As : EditorFileDialog
 var _Save_Story_As : EditorFileDialog
 var _story : Dictionary
@@ -34,6 +37,7 @@ var _story : Dictionary
 #Virtual Methods
 
 func _ready():
+	self._create_rename_box()
 	self._populate_story_menu()
 	self._setup_dialogs()
 	self._Filter_Menu.get_popup().connect("index_pressed", self, "_on_Filter_Menu_index_pressed")
@@ -200,14 +204,24 @@ func _on_Load_Story_file_selected(filename : String):
 		new_dialog_record.connect("changed_human_readable_text", self,
 			"_on_Dialog_changed_human_readable_text")
 		new_dialog_record.connect("edit_pressed", self, "_on_Dialog_edit_pressed")
+		new_dialog_record.connect("rename_pressed", self, "_on_Record_Rename_pressed")
 		
 		new_dialog_record.set_did(did)
 		var human_readable_description = self.get_dialog_property(did, "human_readable_description")
 		new_dialog_record.update_human_readable_description(human_readable_description)
+		
+		if self._story[did].has("name"):
+			var record_name = self._story[did]["name"]
+			new_dialog_record.set_record_name(record_name)
 
 
 func _on_New_Story_BTN_pressed():
 	self._clear_story()
+
+
+func _on_Record_Rename_pressed(record):
+	self._Record_Rename_Box.set_target_record(record)
+	self._Record_Rename_Box.visible = true
 
 
 func _on_Remove_Group_BTN_pressed():
@@ -222,6 +236,27 @@ func _on_Remove_Group_BTN_pressed():
 		self._dialog_remove_group(did, group)
 		record.uncheck()
 	self.emit_signal("changed_story")
+
+
+func _on_Rename_Box_Rename(rename : String):
+	var record = self._Record_Rename_Box.get_target_record()
+	var old_name = record.get_record_name()
+	var record_did = record.get_did()
+	
+	if rename.empty() or rename == "NAME":
+		record.set_record_name("NAME")
+		self._story[record_did].erase("name")
+		self._record_names.erase(old_name)
+		return
+	
+	if self._record_names.has(rename):
+		return
+	
+	self._record_names.erase(old_name)
+	
+	self._record_names[rename] = record_did
+	self._story[record_did]["name"] = rename
+	record.set_record_name(rename)
 
 
 func _on_Save_CSV_BTN_pressed():
@@ -380,6 +415,7 @@ func _add_group():
 func _bake_data() :
 	var baked_story = self._story.duplicate(true)
 	for did in baked_story.keys():
+		baked_story[did].erase("name")
 		baked_story[did].erase("groups")
 		baked_story[did].erase("available_nid")
 		baked_story[did].erase("human_readable_description")
@@ -397,10 +433,12 @@ func _bake_data_to(filename):
 		file_data = load(filename)
 		if file_data.TYPE == "EXP_Baked_Story":
 			file_data.story = self._bake_data()
+			file_data.names = self._record_names.duplicate(true)
 			ResourceSaver.save(filename, file_data)
 	else:
 		file_data = _EXP_Baked_Story.new()
 		file_data.story = self._bake_data()
+		file_data.names = self._record_names.duplicate(true)
 		ResourceSaver.save(filename, file_data)
 
 
@@ -419,6 +457,7 @@ func _clear_story():
 	self._story.clear()
 	self._available_dids.clear()
 	self._checked_dialogs.clear()
+	self._record_names.clear()
 	self._Filename_LBL.text = "Unsaved Story"
 	self.emit_signal("changed_story")
 
@@ -446,10 +485,17 @@ func _create_dialog_record():
 	new_dialog_record.connect("changed_human_readable_text", self,
 		"_on_Dialog_changed_human_readable_text")
 	new_dialog_record.connect("edit_pressed", self, "_on_Dialog_edit_pressed")
+	new_dialog_record.connect("rename_pressed", self, "_on_Record_Rename_pressed")
 	
 	new_dialog_record.set_did(new_did)
 	new_dialog_record.update_human_readable_description(
 		"New Dialog - Enter Human Readable Description.")
+
+
+func _create_rename_box():
+	self._Record_Rename_Box = _Record_Rename_Box_TSCN.instance()
+	self._Record_Rename_Box.connect("rename_BTN_pressed", self, "_on_Rename_Box_Rename")
+	self.add_child(self._Record_Rename_Box)
 
 
 func _delete_checked_dialogs():
@@ -498,6 +544,8 @@ func _load_data_from(new_story):
 	self._story = new_story.story.duplicate(true)
 	self._available_dids = new_story.available_dids.duplicate(true)
 	self._groups = new_story.groups.duplicate(true)
+	self._record_names = new_story.names.duplicate(true)
+	
 
 
 func _make_did_available(did : int):
@@ -536,6 +584,7 @@ func _populate_searchby_menu():
 	self._Search_Option_BTN.clear()
 	self._Search_Option_BTN.get_popup().add_item("Human Readable LBL", 0)
 	self._Search_Option_BTN.get_popup().add_item("DID", 1)
+	self._Search_Option_BTN.get_popup().add_item("Record Name", 2)
 	self._Search_Option_BTN.select(0)
 
 func _populate_story_menu():
@@ -566,6 +615,10 @@ func _remove_record(dialog_record):
 	dialog_record.disconnect("unchecked", self, "_on_Dialog_unchecked")
 	dialog_record.disconnect("changed_human_readable_text", self,
 		"_on_Dialog_changed_human_readable_text")
+	dialog_record.disconnect("rename_pressed", self, "_on_Record_Rename_pressed")
+	var record_name = dialog_record.get_record_name()
+	if not record_name == "NAME":
+		self._record_names.erase(record_name)
 	
 	dialog_record.free()
 
@@ -575,12 +628,14 @@ func _save_data_to(filename):
 	if self._Dir.file_exists(filename):
 		file_data = load(filename)
 		if file_data.TYPE == "EXP_Story_editor":
+			file_data.names = self._record_names.duplicate(true)
 			file_data.story = self._story.duplicate(true)
 			file_data.available_dids = self._available_dids.duplicate(true)
 			file_data.groups = self._groups.duplicate(true)
 			ResourceSaver.save(filename, file_data)
 	else:
 		file_data = _EXP_Story.new()
+		file_data.names = self._record_names.duplicate(true)
 		file_data.story = self._story.duplicate(true)
 		file_data.available_dids = self._available_dids.duplicate(true)
 		file_data.groups = self._groups.duplicate(true)
@@ -669,6 +724,22 @@ func _update_filter():
 			for child in children:
 				var did = child.get_did()
 				if not new_text == str(did) and not new_text.empty():
+					child.visible = false
+				else:
+					child.visible = false
+					if self._Filter_Menu.get_popup().get_item_count() == 0:
+						child.visible = true
+					var dialog_groups = self.dialog_get_groups(did)
+					if dialog_groups.empty() and filter_groups.has("-No Tags-"):
+						child.visible = true
+					for group in dialog_groups:
+						if filter_groups.has(group):
+							child.visible = true
+		2: #Record Name Search 
+			for child in children:
+				var did = child.get_did()
+				var record_name = child.get_record_name()
+				if record_name.find(new_text) == -1 and not new_text.empty():
 					child.visible = false
 				else:
 					child.visible = false

@@ -1,4 +1,4 @@
-## EXP Godot Dialog System v.1.1.0
+## EXP Godot Dialog System v.1.2.0
 #### By David Lipps aka Dave the Dev at EXPWorlds for Godot 3.2 Stable
 ---
 ![Example Palettle Editor Image](se.png)
@@ -20,8 +20,9 @@ This is an addon which assists in the generation, organization, storage, and acc
 - Under the "Story" menu, using Save As, saves all the text and node connection data to a Story File Resource, plus information needed to load the data back into the editors for further editing. However, using Bake As saves only non-extraneous text and node connection data to a Story File Resource. Baked Story Files cannot be reloaded into the editor.
 - Tags can be added and removed from the story project via the Tag Manager.
 - To apply a tag to a dialog record, select the desired tag from the Tag drop-down menu in the tag section, check all dialog records you wish to apply the tag to, and press apply. And do similarly to remove tags from dialog records.
+- Dialog Records can be given a name which is associated with the DID. To give the record a name, click the "NAME" field and rename it. To rename it again, simply click on the name. Just as DIDs are unique to each record, names must be unique too. The editor will not let you use a name that is already in use by other record.
 - Typing a query in the "Search By" text box will filter and display only the dialog records whose human readable descriptions match the entered query.
-- The Search By menu can be changed between searching the human readable descriptions and by DIDs.
+- The Search By menu can be changed between searching the human readable descriptions, by DIDs, and by record names.
 - In the Search By Tag menu, tags can be toggled on and off, to show and hide dialog records associated with tags, or records with no tags. The tag menu works in conjunction with the search query, so be mindful of the settings when searching for records.
 - To edit the nodes in a dialog record, click the "EDIT" button on the desired record and the Dialog Editor will be opened.
 ##### The Dialog Editor
@@ -54,6 +55,9 @@ Once you've written all your text, and baked a story file, you can use the Story
 ##### func get_dids() -> Array:
 >Returns a list (int) of all the DIDs in the Story
 
+##### func get_did_via_name(name : String) -> int:
+>Returns the DID associated with a user defined name.
+
 ##### func get_nid_from_slot(did : int, nid : int, slot : int) -> int:
 >Returns the NID of the node the specified slot is connected to.
 
@@ -79,12 +83,16 @@ Once you've written all your text, and baked a story file, you can use the Story
 ##### func has_slot(did: int, nid : int, slot : int) -> bool:
 
 ##### func read(story : Resource):
->Sets the story resource read by the Story Reader object. Story Readers can only use baked stories. Reading a second baked story will simply replace the first one. Your project is responsible for loading story files into memory and creating instances
+>Sets the story resource read by the Story Reader object. Story Readers can only use baked stories. Reading a second baked story will simply replace the first one. Your project is responsible for loading story files into memory.
 
 ---
 #### Change Log
-##### 2010-03-07:
-- Incrimented to v1.1.0 
+##### 2020-04-24:
+- Incremented to v1.2.0
+- Dialog records can be given an optional record name to associate with its DID.
+- Dialog records can be searched via the record name.
+##### 2020-03-07:
+- Incrimented to v1.1.0
 - Added CSV Import/Export to support easy Localization and Text Translation.
 - Groups are now Tags.
 - Collapsed StoryEditor options into a "Story" dropdown menu.
