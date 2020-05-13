@@ -1,6 +1,116 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Dialog-System-Example/Dialog_Player.gd" type="Script" id=1]
+[ext_resource path="res://Dialog-System-Example/scipts/dialog_player.gd" type="Script" id=1]
+[ext_resource path="res://Dialog-System-Example/textures/menu_section_9patch.png" type="Texture" id=2]
+[ext_resource path="res://Dialog-System-Example/fonts/speaker_font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Dialog-System-Example/fonts/body_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Dialog-System-Example/scipts/spacebar_ninepatchrect.gd" type="Script" id=5]
+[ext_resource path="res://Dialog-System-Example/scipts/body_label.gd" type="Script" id=6]
 
 [node name="Dialog_Player" type="Node"]
 script = ExtResource( 1 )
+
+[node name="Dialog_Box" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="Dialog_Box"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.10803
+margin_right = -1.10803
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body_NinePatchRect" type="NinePatchRect" parent="Dialog_Box/CenterContainer"]
+margin_left = 280.0
+margin_top = 232.0
+margin_right = 1000.0
+margin_bottom = 488.0
+rect_min_size = Vector2( 720, 256 )
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialog_Box/CenterContainer/Body_NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = 48.0
+margin_right = -16.0
+margin_bottom = -48.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Body_Label" type="Label" parent="Dialog_Box/CenterContainer/Body_NinePatchRect/MarginContainer"]
+margin_right = 688.0
+margin_bottom = 160.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 4 )
+text = "This is where the dialog text is displayed.
+Press F6 to run this example. ^_^"
+script = ExtResource( 6 )
+
+[node name="Name_NinePatchRect" type="NinePatchRect" parent="Dialog_Box/CenterContainer/Body_NinePatchRect"]
+margin_left = -24.3768
+margin_top = -13.2964
+margin_right = 155.623
+margin_bottom = 34.7036
+rect_min_size = Vector2( 180, 48 )
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name_Label" type="Label" parent="Dialog_Box/CenterContainer/Body_NinePatchRect/Name_NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "Speaker"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceBar_NinePatchRect" type="NinePatchRect" parent="Dialog_Box/CenterContainer/Body_NinePatchRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -231.69
+margin_top = -40.0
+margin_right = 24.3102
+margin_bottom = 8.0
+rect_min_size = Vector2( 180, 48 )
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SpaceBar_Label" type="Label" parent="Dialog_Box/CenterContainer/Body_NinePatchRect/SpaceBar_NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "Press SpaceBar"
+align = 1
+valign = 1
+[connection signal="pressed_spacebar" from="." to="." method="_on_Dialog_Player_pressed_spacebar"]
+[connection signal="text_displayed" from="Dialog_Box/CenterContainer/Body_NinePatchRect/MarginContainer/Body_Label" to="." method="_on_Body_Label_text_displayed"]
