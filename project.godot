@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="EXP-Dialog-System"
-config/icon="res://icon.png"
+config/icon="res://addons/EXP-System-Dialog/Images/icon.png"
 
 [display]
 
@@ -25,7 +25,7 @@ window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "EXP-System-Dialog" )
+enabled=PoolStringArray(  )
 
 [locale]
 
