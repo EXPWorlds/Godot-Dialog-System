@@ -7,6 +7,8 @@
 
 This is an addon which assists in the generation, organization, storage, and access of large amounts of text data for Godot Engine projects. It consists of a Story Editor to create and manage lists of dialog records via tags and search filters. And a Dialog Editor through which text/dialog data is created and edited via graph nodes. Although primary designed to handle game dialog, the editors can be used to manage text data for any purpose. Text data can be saved to resource files and read in your game code via the provided helper class.
 
+ [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=22E6SNKTLTHRL&currency_code=USD&source=url) If this project helped you out, consider sending some coffee my way so I can stay locked in "the zone" and bring the Godot community more cool free stuff.
+
 ---
 #### Documentation:
 - Click [here](https://docs.godotengine.org/en/stable/tutorials/plugins/editor/index.html) to learn how to use Godot plugins.
