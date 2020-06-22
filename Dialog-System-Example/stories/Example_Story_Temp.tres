@@ -1,0 +1,170 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_EditorStory/EXP_EditorStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Story_editor"
+names = {
+"DialogPlayer/Test": 1,
+"DialogPlayer/VariableInjection": 2
+}
+story = {
+1: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "This is the first test of the vanilla dialog player.",
+"name": "DialogPlayer/Test",
+"nodes": {
+1: {
+"graph_offset": Vector2( 120, 100 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 200, 280 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Dave the Dev</speaker>
+<dialog>Thanks to your support,  we've surpassed 1,500 subscribers!</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 280, 460 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Dave the Dev</speaker>
+<dialog>Hit SUBSCRIBE and the BELL to come aboard and add your story to our growing game dev community.</dialog>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 800, 100 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Twitter-Kun</speaker>
+<dialog>Keep up with David's dev logs on Twitter: twitter.com/EXP_Worlds</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 880, 280 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Insta-Chan</speaker>
+<dialog>Follow David's life through Japan on Instagram: www.instagram.com/expworlds/</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 960, 460 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+}
+}
+},
+2: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "This is a test of variable injection.",
+"name": "DialogPlayer/VariableInjection",
+"nodes": {
+1: {
+"graph_offset": Vector2( 80, 100 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 80, 280 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>DaveTheDev</speaker>
+<dialog>Hello, if variable injections is working <variable>Test</variable> text string will show up here.</dialog>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 620, 460 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 80, 460 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Program</speaker>
+<dialog>Because of variable injection I know the player's level is <variable>PLAYER/LEVEL</variable>.</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 620, 100 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Program</speaker>
+<dialog>The current date and time is <variable>DATE</variable>.</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 620, 280 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Program</speaker>
+<dialog>and I know the system I'm running on is <variable>SYSTEM</variable>.</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 600, -80 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Program</speaker>
+<dialog>I know that PI is <variable>PI</variable>.</dialog>",
+"type": "line"
+}
+}
+}
+}
+available_dids = [  ]
+groups = [  ]

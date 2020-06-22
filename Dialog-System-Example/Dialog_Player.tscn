@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Dialog-System-Example/scripts/dialog_player.gd" type="Script" id=1]
 [ext_resource path="res://Dialog-System-Example/textures/menu_section_9patch.png" type="Texture" id=2]
 [ext_resource path="res://Dialog-System-Example/fonts/speaker_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Dialog-System-Example/fonts/body_font.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Dialog-System-Example/scripts/simulatedregistry.gd" type="Script" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TextDisplay"
@@ -83,6 +84,8 @@ size_flags_vertical = 3
 custom_fonts/font = ExtResource( 4 )
 text = "This is where the dialog text is displayed.
 Press F6 to run this example. ^_^"
+autowrap = true
+percent_visible = 0.0
 
 [node name="Body_AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label"]
 anims/TextDisplay = SubResource( 1 )
@@ -146,4 +149,7 @@ __meta__ = {
 [node name="SpaceBar_AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
 autoplay = "Blink"
 anims/Blink = SubResource( 2 )
+
+[node name="Simulated_Registry" type="Node" parent="."]
+script = ExtResource( 5 )
 [connection signal="animation_finished" from="Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label/Body_AnimationPlayer" to="." method="_on_Body_AnimationPlayer_animation_finished"]

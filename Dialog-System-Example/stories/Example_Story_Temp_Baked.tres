@@ -1,0 +1,108 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/EXP-System-Dialog/Resource_BakedStory/EXP_BakedStory.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+TYPE = "EXP_Baked_Story"
+story = {
+1: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 3
+},
+"text": "<speaker>Dave the Dev</speaker>
+<dialog>Thanks to your support,  we've surpassed 1,500 subscribers!</dialog>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>Dave the Dev</speaker>
+<dialog>Hit SUBSCRIBE and the BELL to come aboard and add your story to our growing game dev community.</dialog>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Twitter-Kun</speaker>
+<dialog>Keep up with David's dev logs on Twitter: twitter.com/EXP_Worlds</dialog>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Insta-Chan</speaker>
+<dialog>Follow David's life through Japan on Instagram: www.instagram.com/expworlds/</dialog>"
+},
+6: {
+"links": {
+
+},
+"text": "<end>"
+}
+}
+},
+2: {
+"nodes": {
+1: {
+"links": {
+0: 2
+},
+"text": "<start>"
+},
+2: {
+"links": {
+0: 4
+},
+"text": "<speaker>DaveTheDev</speaker>
+<dialog>Hello, if variable injections is working <variable>Test</variable> text string will show up here.</dialog>"
+},
+3: {
+"links": {
+
+},
+"text": "<end>"
+},
+4: {
+"links": {
+0: 7
+},
+"text": "<speaker>Program</speaker>
+<dialog>Because of variable injection I know the player's level is <variable>PLAYER/LEVEL</variable>.</dialog>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Program</speaker>
+<dialog>The current date and time is <variable>DATE</variable>.</dialog>"
+},
+6: {
+"links": {
+0: 3
+},
+"text": "<speaker>Program</speaker>
+<dialog>and I know the system I'm running on is <variable>SYSTEM</variable>.</dialog>"
+},
+7: {
+"links": {
+0: 5
+},
+"text": "<speaker>Program</speaker>
+<dialog>I know that PI is <variable>PI</variable>.</dialog>"
+}
+}
+}
+}
+names = {
+"DialogPlayer/Test": 1,
+"DialogPlayer/VariableInjection": 2
+}

@@ -25,7 +25,7 @@ window/size/height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "EXP-System-Dialog" )
 
 [locale]
 
