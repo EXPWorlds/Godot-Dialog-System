@@ -1,8 +1,8 @@
 ## EXP Godot Dialog System v.1.2.0
 #### By David Lipps aka Dave the Dev at EXPWorlds for Godot 3.2 Stable
 ---
-![Example Palettle Editor Image](addons/EXP-System-Dialog/Images/se.png)
-![Example Palettle Editor Image](addons/EXP-System-Dialog/Images/de.png)
+![Example Palettle Editor Image](addons/EXP-System-Dialog/Images/Screenshots/se.png)
+![Example Palettle Editor Image](addons/EXP-System-Dialog/Images/Screenshots/de.png)
 ---
 
 This is an addon which assists in the generation, organization, storage, and access of large amounts of text data for Godot Engine projects. It consists of a Story Editor to create and manage lists of dialog records via tags and search filters. And a Dialog Editor through which text/dialog data is created and edited via graph nodes. Although primary designed to handle game dialog, the editors can be used to manage text data for any purpose. Text data can be saved to resource files and read in your game code via the provided helper class.
