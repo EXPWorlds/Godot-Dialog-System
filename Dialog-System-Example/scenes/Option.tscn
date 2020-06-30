@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Dialog-System-Example/fonts/option_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Dialog-System-Example/textures/menu_section_9patch.png" type="Texture" id=2]
+[ext_resource path="res://Dialog-System-Example/scenes/Option.gd" type="Script" id=3]
+
+[node name="Option" type="NinePatchRect"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 48 )
+size_flags_horizontal = 3
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "This is a test option."
+flat = true
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

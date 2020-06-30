@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Dialog-System-Example/scripts/dialog_player.gd" type="Script" id=1]
 [ext_resource path="res://Dialog-System-Example/textures/menu_section_9patch.png" type="Texture" id=2]
 [ext_resource path="res://Dialog-System-Example/fonts/speaker_font.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Dialog-System-Example/fonts/body_font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Dialog-System-Example/scripts/simulatedregistry.gd" type="Script" id=5]
+[ext_resource path="res://Dialog-System-Example/scenes/Option.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TextDisplay"
@@ -22,6 +23,21 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -85,7 +101,6 @@ custom_fonts/font = ExtResource( 4 )
 text = "This is where the dialog text is displayed.
 Press F6 to run this example. ^_^"
 autowrap = true
-percent_visible = 0.0
 
 [node name="Body_AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/MarginContainer/Body_Label"]
 anims/TextDisplay = SubResource( 1 )
@@ -149,6 +164,74 @@ __meta__ = {
 [node name="SpaceBar_AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/SpaceBar_NinePatchRect"]
 autoplay = "Blink"
 anims/Blink = SubResource( 2 )
+
+[node name="SelectChoice_NinePatchRect" type="NinePatchRect" parent="Dialog_Box/Body_NinePatchRect"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -231.69
+margin_top = -40.0
+margin_right = 24.3102
+margin_bottom = 8.0
+rect_min_size = Vector2( 180, 48 )
+texture = ExtResource( 2 )
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectChoice_Label" type="Label" parent="Dialog_Box/Body_NinePatchRect/SelectChoice_NinePatchRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 3 )
+text = "Select Choice"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SelectChoice_AnimationPlayer" type="AnimationPlayer" parent="Dialog_Box/Body_NinePatchRect/SelectChoice_NinePatchRect"]
+autoplay = "Blink"
+anims/Blink = SubResource( 3 )
+
+[node name="Option_List" type="VBoxContainer" parent="Dialog_Box/Body_NinePatchRect"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -540.0
+margin_top = -160.0
+margin_bottom = -8.0
+grow_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Option" parent="Dialog_Box/Body_NinePatchRect/Option_List" instance=ExtResource( 6 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 540.0
+margin_bottom = 48.0
+
+[node name="Option2" parent="Dialog_Box/Body_NinePatchRect/Option_List" instance=ExtResource( 6 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 52.0
+margin_right = 540.0
+margin_bottom = 100.0
+
+[node name="Option3" parent="Dialog_Box/Body_NinePatchRect/Option_List" instance=ExtResource( 6 )]
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 104.0
+margin_right = 540.0
+margin_bottom = 152.0
 
 [node name="Simulated_Registry" type="Node" parent="."]
 script = ExtResource( 5 )

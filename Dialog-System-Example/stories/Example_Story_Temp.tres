@@ -6,6 +6,7 @@
 script = ExtResource( 1 )
 TYPE = "EXP_Story_editor"
 names = {
+"DialogPlayer/ChoiceBranching": 3,
 "DialogPlayer/Test": 1,
 "DialogPlayer/VariableInjection": 2
 }
@@ -34,7 +35,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Dave the Dev</speaker>
-<dialog>Thanks to your support,  we've surpassed 1,500 subscribers!</dialog>",
+<dialog>Hello, you can find me on YouTube as Dave The Dev.</dialog>",
 "type": "line"
 },
 3: {
@@ -45,7 +46,7 @@ story = {
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<speaker>Dave the Dev</speaker>
-<dialog>Hit SUBSCRIBE and the BELL to come aboard and add your story to our growing game dev community.</dialog>",
+<dialog>Hit SUBSCRIBE and the BELL icon to come aboard and add your story to our growing game dev community.</dialog>",
 "type": "line"
 },
 4: {
@@ -62,7 +63,7 @@ story = {
 5: {
 "graph_offset": Vector2( 880, 280 ),
 "links": {
-0: 6
+0: 7
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
@@ -71,13 +72,24 @@ story = {
 "type": "line"
 },
 6: {
-"graph_offset": Vector2( 960, 460 ),
+"graph_offset": Vector2( 940, 660 ),
 "links": {
 
 },
 "rect_size": Vector2( 324, 137 ),
 "slot_amount": 1,
 "text": "<end>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 940, 460 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Dave the Dev</speaker>
+<dialog>Thank you for your support!</dialog>",
 "type": "line"
 }
 }
@@ -161,6 +173,92 @@ story = {
 "slot_amount": 1,
 "text": "<speaker>Program</speaker>
 <dialog>I know that PI is <variable>PI</variable>.</dialog>",
+"type": "line"
+}
+}
+},
+3: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "This is a test of choice branching.",
+"name": "DialogPlayer/ChoiceBranching",
+"nodes": {
+1: {
+"graph_offset": Vector2( 60, 80 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 1140, 340 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 60, 280 ),
+"links": {
+0: 4,
+1: 5,
+2: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 3,
+"text": "<speaker>Wizard</speaker>
+<dialog>You must choose one of three potions, choose wisely.</dialog>
+<choiceJSON>{\"Red Potion\" : 0, \"Blue Potion\" : 1, \"Green Potion\" : 2}</choiceJSON>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 560, 120 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Red Potion</speaker>
+<dialog>HA HA For drinking me, the Romantic Red Potion, everyone will fall in love with you, but you can never love again!</dialog>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 560, 340 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Blue Potion</speaker>
+<dialog>HA HA For drinking me, the Beluga Blue Potion, you are granted the gift of water breathing, but water blinds your eyes!</dialog>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 580, 540 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Green Potion</speaker>
+<dialog>HA HA For drinking me, the Greedy Green Potion, you have all the money in the world, but can only buy things that start with the letter Y!</dialog>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 1140, 120 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Wizard</speaker>
+<dialog>Well, it could be worse, you're not dead after all.</dialog>",
 "type": "line"
 }
 }
