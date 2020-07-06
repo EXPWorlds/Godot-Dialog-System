@@ -2,6 +2,7 @@ extends Node
 
 onready var _Body_AnimationPlayer = find_node("Body_AnimationPlayer")
 onready var _Body_LBL = find_node("Body_Label")
+onready var _Character_Texture = find_node("Character_Texture")
 onready var _Dialog_Box = find_node("Dialog_Box")
 onready var _Option_List = find_node("Option_List")
 onready var _Registry = find_node("Simulated_Registry")
@@ -15,6 +16,7 @@ var _did = 0
 var _nid = 0
 var _final_nid = 0
 var _Story_Reader
+var _texture_library : Dictionary = {}
 
 # Virtual Methods
 
@@ -25,14 +27,17 @@ func _ready():
 	var story = load("res://Dialog-System-Example/stories/Example_Story_Temp_Baked.tres")
 	_Story_Reader.read(story)
 	
+	_load_textures()
+	
 	_Dialog_Box.visible = false
 	_SpaceBar_Icon.visible = false
 	_SelectChoice_Icon.visible = false
 	_Option_List.visible = false
+	_Character_Texture.visible = false
 	
 	_clear_options()
 	
-	play_dialog("DialogPlayer/Test")
+	play_dialog("DialogPlayer/CharacterTextures")
 
 
 func _input(event):
@@ -53,6 +58,7 @@ func _on_Body_AnimationPlayer_animation_finished(anim_name):
 func _on_Dialog_Player_pressed_spacebar():
 	if _is_waiting():
 		_SpaceBar_Icon.visible = false
+		_Character_Texture.visible = false
 		_get_next_node()
 		if _is_playing():
 			_play_node()
@@ -61,6 +67,7 @@ func _on_Dialog_Player_pressed_spacebar():
 func _on_Option_clicked(slot : int):
 	_SelectChoice_Icon.visible = false
 	_Option_List.visible = false
+	_Character_Texture.visible = false
 	_get_next_node(slot)
 	_clear_options()
 	if _is_playing():
@@ -83,6 +90,13 @@ func _clear_options():
 	for child in children:
 		_Option_List.remove_child(child)
 		child.queue_free()
+	_Option_List.rect_size.y = 48
+	_Option_List.rect_position.y = -60
+
+
+func _display_image(key : String):
+	_Character_Texture.texture = _texture_library[key]
+	_Character_Texture.visible = true
 
 
 func _get_next_node(slot : int = 0):
@@ -124,6 +138,17 @@ func _is_waiting():
 	return _SpaceBar_Icon.visible
 
 
+func _load_textures():
+	var did = _Story_Reader.get_did_via_record_name("DialogPlayer/TextureLibrary")
+	var json_text = _Story_Reader.get_text(did, 1)
+	var raw_texture_library : Dictionary = parse_json(json_text)
+	
+	for key in raw_texture_library:
+		var texture_path = raw_texture_library[key]
+		var loaded_texture = load(texture_path)
+		_texture_library[key] = loaded_texture
+
+
 func _play_node():
 	var text = _Story_Reader.get_text(_did, _nid)
 	text = _inject_variables(text)
@@ -132,6 +157,9 @@ func _play_node():
 	if "<choiceJSON>" in text:
 		var options = _get_tagged_text("choiceJSON", text)
 		_populate_choices(options)
+	if "<image>" in text:
+		var library_key = _get_tagged_text("image", text)
+		_display_image(library_key)
 		
 	_Speaker_LBL.text = speaker
 	_Body_LBL.text = dialog

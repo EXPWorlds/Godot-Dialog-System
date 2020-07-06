@@ -203,9 +203,10 @@ anims/Blink = SubResource( 3 )
 anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -540.0
-margin_top = -160.0
-margin_bottom = -8.0
+margin_top = -60.0
+margin_bottom = -12.0
 grow_vertical = 0
+alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -232,6 +233,12 @@ anchor_bottom = 0.0
 margin_top = 104.0
 margin_right = 540.0
 margin_bottom = 152.0
+
+[node name="Character_Texture" type="TextureRect" parent="Dialog_Box/Body_NinePatchRect"]
+margin_left = -16.0
+margin_top = -180.0
+margin_right = 144.0
+margin_bottom = -20.0
 
 [node name="Simulated_Registry" type="Node" parent="."]
 script = ExtResource( 5 )

@@ -6,8 +6,10 @@
 script = ExtResource( 1 )
 TYPE = "EXP_Story_editor"
 names = {
+"DialogPlayer/CharacterTextures": 5,
 "DialogPlayer/ChoiceBranching": 3,
 "DialogPlayer/Test": 1,
+"DialogPlayer/TextureLibrary": 4,
 "DialogPlayer/VariableInjection": 2
 }
 story = {
@@ -259,6 +261,118 @@ story = {
 "slot_amount": 1,
 "text": "<speaker>Wizard</speaker>
 <dialog>Well, it could be worse, you're not dead after all.</dialog>",
+"type": "line"
+}
+}
+},
+4: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "A list of texture filepaths.",
+"name": "DialogPlayer/TextureLibrary",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "{
+\"1\" : \"res://Dialog-System-Example/textures/characters/1.png\",
+\"2\" : \"res://Dialog-System-Example/textures/characters/2.png\",
+\"3\" : \"res://Dialog-System-Example/textures/characters/3.png\",
+\"4\" : \"res://Dialog-System-Example/textures/characters/4.png\",
+\"5\" : \"res://Dialog-System-Example/textures/characters/5.png\"
+}",
+"type": "line"
+}
+}
+},
+5: {
+"available_nid": [  ],
+"groups": [  ],
+"human_readable_description": "New Dialog - Enter Human Readable Description.",
+"name": "DialogPlayer/CharacterTextures",
+"nodes": {
+1: {
+"graph_offset": Vector2( 40, 40 ),
+"links": {
+0: 3
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<start>",
+"type": "line"
+},
+2: {
+"graph_offset": Vector2( 600, 520 ),
+"links": {
+
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<end>",
+"type": "line"
+},
+3: {
+"graph_offset": Vector2( 40, 200 ),
+"links": {
+0: 4
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>One</speaker>
+<dialog>I am number one!</dialog>
+<image>1</image>",
+"type": "line"
+},
+4: {
+"graph_offset": Vector2( 40, 360 ),
+"links": {
+0: 5
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Two</speaker>
+<dialog>I am number two!</dialog>
+<image>2</image>",
+"type": "line"
+},
+5: {
+"graph_offset": Vector2( 600, 40 ),
+"links": {
+0: 6
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Three</speaker>
+<dialog>I am number three!!</dialog>
+<image>3</image>",
+"type": "line"
+},
+6: {
+"graph_offset": Vector2( 600, 200 ),
+"links": {
+0: 7
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Four</speaker>
+<dialog>I am number four!</dialog>
+<image>4</image>",
+"type": "line"
+},
+7: {
+"graph_offset": Vector2( 600, 360 ),
+"links": {
+0: 2
+},
+"rect_size": Vector2( 324, 137 ),
+"slot_amount": 1,
+"text": "<speaker>Five</speaker>
+<dialog>I am number five!</dialog>
+<image>5</image>",
 "type": "line"
 }
 }

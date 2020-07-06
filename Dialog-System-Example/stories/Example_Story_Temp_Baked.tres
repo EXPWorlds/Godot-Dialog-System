@@ -161,10 +161,84 @@ story = {
 <dialog>Well, it could be worse, you're not dead after all.</dialog>"
 }
 }
+},
+4: {
+"nodes": {
+1: {
+"links": {
+
+},
+"text": "{
+\"1\" : \"res://Dialog-System-Example/textures/characters/1.png\",
+\"2\" : \"res://Dialog-System-Example/textures/characters/2.png\",
+\"3\" : \"res://Dialog-System-Example/textures/characters/3.png\",
+\"4\" : \"res://Dialog-System-Example/textures/characters/4.png\",
+\"5\" : \"res://Dialog-System-Example/textures/characters/5.png\"
+}"
+}
+}
+},
+5: {
+"nodes": {
+1: {
+"links": {
+0: 3
+},
+"text": "<start>"
+},
+2: {
+"links": {
+
+},
+"text": "<end>"
+},
+3: {
+"links": {
+0: 4
+},
+"text": "<speaker>One</speaker>
+<dialog>I am number one!</dialog>
+<image>1</image>"
+},
+4: {
+"links": {
+0: 5
+},
+"text": "<speaker>Two</speaker>
+<dialog>I am number two!</dialog>
+<image>2</image>"
+},
+5: {
+"links": {
+0: 6
+},
+"text": "<speaker>Three</speaker>
+<dialog>I am number three!!</dialog>
+<image>3</image>"
+},
+6: {
+"links": {
+0: 7
+},
+"text": "<speaker>Four</speaker>
+<dialog>I am number four!</dialog>
+<image>4</image>"
+},
+7: {
+"links": {
+0: 2
+},
+"text": "<speaker>Five</speaker>
+<dialog>I am number five!</dialog>
+<image>5</image>"
+}
+}
 }
 }
 names = {
+"DialogPlayer/CharacterTextures": 5,
 "DialogPlayer/ChoiceBranching": 3,
 "DialogPlayer/Test": 1,
+"DialogPlayer/TextureLibrary": 4,
 "DialogPlayer/VariableInjection": 2
 }
