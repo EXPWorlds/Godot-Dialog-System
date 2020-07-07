@@ -75,9 +75,10 @@ func read(file):
 	if not "TYPE" in file:
 		print_debug("Story reader failed to open file: ", str(file.filename))
 		return
-	if not file.TYPE == "EXP_Baked_Story":
+	if file.TYPE == "EXP_Story_editor":
+		print("WARNING: Using editor story, this is not recommended in production!")
+	elif not file.TYPE == "EXP_Baked_Story":
 		print_debug("Story reader failed to open file: ", str(file.filename))
 		return
-	
 	self._story = file.story
 	self._names = file.names
